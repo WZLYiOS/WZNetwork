@@ -1,0 +1,12 @@
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+source 'https://gitlab.com/WZiOS/WZiOSPodSpecs.git'
+
+platform:ios, '9.0'
+use_frameworks!
+
+target 'WZNetwork_Example' do
+  pod 'WZNetwork', :path => '../'
+  pod 'WZEncryption', '~> 1.0.0'#加密组件
+  pod 'WZUUID', '~> 2.0.0' #唯一标识
+  pod 'CleanJSON', '~> 1.0.0' #动态处理JSON问题
+end
