@@ -9,8 +9,6 @@
 ## Installation Cocoapods
 <pre><code class="ruby language-ruby">pod 'WZNetwork', '~> 4.0.0'</code></pre>
 
-## Demo
-![demo](https://git.lug.ustc.edu.cn/wzios/WZNetwork/raw/master/1.png)
 
 ## 说明
 - 4.0.0 只支持iOS10开始
@@ -143,13 +141,6 @@ extension ViewController: UITableViewDelegate {
 ```
 
 ### 具体详情请运行项目查看
-
-
-## Reference
-<ul>
-<li><a href="https://git.lug.ustc.edu.cn/wzios/WZAlamofire.git"><code>WZAlamofire</code></a></li>
-<li><a href="https://git.lug.ustc.edu.cn/wzios/WZMoya.git"><code>WZMoya</code></a></li>
-</ul>
 
 ## License
 WZNetwork is released under an MIT license. See [LICENSE](LICENSE) for more information.
