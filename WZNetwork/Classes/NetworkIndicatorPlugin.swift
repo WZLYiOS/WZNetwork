@@ -6,7 +6,7 @@
 //  Copyright © 2019 xiaobin liu. All rights reserved.
 //
 
-import WZMoya
+import Moya
 
 
 /// MARK - 网络指示器插件
@@ -38,7 +38,7 @@ public final class NetworkIndicatorPlugin: PluginType {
     /// - Parameters:
     ///   - result: result
     ///   - target: target
-    public func didReceive(_ result: Result<WZMoya.Response, MoyaError>, target: TargetType) {
+    public func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType) {
         NetworkIndicatorPlugin.numberOfRequests -= 1
     }
     

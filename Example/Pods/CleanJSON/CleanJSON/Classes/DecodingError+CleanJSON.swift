@@ -25,7 +25,7 @@ extension DecodingError {
     /// - parameter value: The value whose type to describe.
     /// - returns: A string describing `value`.
     /// - precondition: `value` is one of the types below.
-    fileprivate static func _typeDescription(of value: Any) -> String {
+    private static func _typeDescription(of value: Any) -> String {
         if value is NSNull {
             return "a null value"
         } else if value is NSNumber /* FIXME: If swift-corelibs-foundation isn't updated to use NSNumber, this check will be necessary: || value is Int || value is Double */ {
@@ -51,7 +51,9 @@ extension DecodingError {
                 key,
                 DecodingError.Context(
                     codingPath: codingPath,
-                    debugDescription: "No value associated with key \("\(key) (\"\(key.stringValue)\")")."))
+                    debugDescription: "No value associated with key \("\(key) (\"\(key.stringValue)\")")."
+                )
+            )
         }
         
         static func valueNotFound(_ type: Any.Type, codingPath: [CodingKey]) -> DecodingError {
@@ -59,7 +61,9 @@ extension DecodingError {
                 type,
                 DecodingError.Context(
                     codingPath: codingPath,
-                    debugDescription: "Expected \(type) value but found null instead."))
+                    debugDescription: "Expected \(type) value but found null instead."
+                )
+            )
         }
     }
 }
@@ -72,7 +76,8 @@ extension DecodingError {
             _ type: Any.Type,
             codingPath: [CodingKey],
             currentIndex: Int,
-            isAtEnd: Bool = false) -> DecodingError {
+            isAtEnd: Bool = false
+        ) -> DecodingError {
             let debugDescription = isAtEnd
                 ? "Unkeyed container is at end."
                 : "Expected \(type) but found null instead."
@@ -80,7 +85,9 @@ extension DecodingError {
                 type,
                 DecodingError.Context(
                     codingPath: codingPath + [CleanJSONKey(index: currentIndex)],
-                    debugDescription: debugDescription))
+                    debugDescription: debugDescription
+                )
+            )
         }
     }
 }
@@ -97,15 +104,23 @@ extension DecodingError {
                 key,
                 DecodingError.Context(
                     codingPath: codingPath,
-                    debugDescription: debugDescription))
+                    debugDescription: debugDescription
+                )
+            )
         }
         
-        static func valueNotFound(_ type: Any.Type, codingPath: [CodingKey], debugDescription: String) -> DecodingError {
+        static func valueNotFound(
+            _ type: Any.Type,
+            codingPath: [CodingKey],
+            debugDescription: String
+        ) -> DecodingError {
             return DecodingError.valueNotFound(
                 type,
                 DecodingError.Context(
                     codingPath: codingPath,
-                    debugDescription: debugDescription))
+                    debugDescription: debugDescription
+                )
+            )
         }
     }
 }

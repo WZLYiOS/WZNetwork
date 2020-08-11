@@ -449,12 +449,23 @@ struct CleanJSONKeyedDecodingContainer<K : CodingKey>: KeyedDecodingContainerPro
         let decodeJSONString = { (decoder: _CleanJSONDecoder) -> T in
             if let _ = String.defaultValue as? T { return try decodeObject(decoder) }
             
-            if let string = try decoder.unbox(entry, as: String.self),
-                let object = string.decode(to: type, options: decoder.options) {
-                return object
+            guard let string = try decoder.unbox(entry, as: String.self) else {
+                return try decodeObject(decoder)
             }
             
-            return try decodeObject(decoder)
+            // 过滤掉非 JSON 格式字符串
+            guard string.hasPrefix("{") || string.hasPrefix("[") else {
+                return try decodeObject(decoder)
+            }
+            
+            guard let data = string.data(using: .utf8),
+                  let topLevel = try? JSONSerialization.jsonObject(with: data) else {
+                return try decodeObject(decoder)
+            }
+            
+            decoder.storage.push(container: topLevel)
+            defer { decoder.storage.popContainer() }
+            return try decoder.decode(type)
         }
         
         switch decoder.options.jsonStringDecodingStrategy {
@@ -472,7 +483,10 @@ struct CleanJSONKeyedDecodingContainer<K : CodingKey>: KeyedDecodingContainerPro
     }
     
     @inline(__always)
-    public func nestedContainer<NestedKey>(keyedBy type: NestedKey.Type, forKey key: Key) throws -> KeyedDecodingContainer<NestedKey> {
+    public func nestedContainer<NestedKey>(
+        keyedBy type: NestedKey.Type,
+        forKey key: Key
+    ) throws -> KeyedDecodingContainer<NestedKey> {
         self.decoder.codingPath.append(key)
         defer { self.decoder.codingPath.removeLast() }
         
@@ -501,12 +515,14 @@ struct CleanJSONKeyedDecodingContainer<K : CodingKey>: KeyedDecodingContainerPro
     }
     
     @inline(__always)
-    private func nestedContainer<NestedKey>(wrapping dictionary: [String: Any] = [:])
-        -> KeyedDecodingContainer<NestedKey> {
-            let container = CleanJSONKeyedDecodingContainer<NestedKey>(
-                referencing: decoder,
-                wrapping: dictionary)
-            return KeyedDecodingContainer(container)
+    private func nestedContainer<NestedKey>(
+        wrapping dictionary: [String: Any] = [:]
+    ) -> KeyedDecodingContainer<NestedKey> {
+        let container = CleanJSONKeyedDecodingContainer<NestedKey>(
+            referencing: decoder,
+            wrapping: dictionary
+        )
+        return KeyedDecodingContainer(container)
     }
     
     @inline(__always)
@@ -528,7 +544,8 @@ struct CleanJSONKeyedDecodingContainer<K : CodingKey>: KeyedDecodingContainerPro
             case .throw:
                 throw DecodingError._typeMismatch(
                     at: self.codingPath,
-                    expectation: [Any].self, reality: value)
+                    expectation: [Any].self, reality: value
+                )
             case .useEmptyContainer:
                 return CleanJSONUnkeyedDecodingContainer(referencing: self.decoder, wrapping: [])
             }
@@ -543,7 +560,11 @@ struct CleanJSONKeyedDecodingContainer<K : CodingKey>: KeyedDecodingContainerPro
         defer { self.decoder.codingPath.removeLast() }
         
         let value: Any = self.container[key.stringValue] ?? NSNull()
-        return _CleanJSONDecoder(referencing: value, at: self.decoder.codingPath, options: self.decoder.options)
+        return _CleanJSONDecoder(
+            referencing: value,
+            at: self.decoder.codingPath,
+            options: self.decoder.options
+        )
     }
     
     @inline(__always)
@@ -860,24 +881,5 @@ private extension CleanJSONKeyedDecodingContainer {
         case .useDefaultValue:
             return T.defaultValue
         }
-    }
-}
-
-private extension String {
-    
-    func decode<T: Decodable>(to type: T.Type, options: CleanJSONDecoder.Options) -> T? {
-        guard hasPrefix("{") || hasPrefix("[") else { return nil }
-        
-        guard let data = data(using: .utf8),
-            let topLevel = try? JSONSerialization.jsonObject(with: data) else { return nil }
-        
-        let decoder = _CleanJSONDecoder(referencing: topLevel, options: options)
-        #if swift(<5)
-        guard let obj = try? decoder.unbox(topLevel, as: type) else { return nil }
-        
-        return obj
-        #else
-        return try? decoder.unbox(topLevel, as: type)
-        #endif
     }
 }

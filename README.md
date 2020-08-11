@@ -7,10 +7,14 @@
 
 
 ## Installation Cocoapods
-<pre><code class="ruby language-ruby">pod 'WZNetwork', '~> 2.0.0'</code></pre>
+<pre><code class="ruby language-ruby">pod 'WZNetwork', '~> 4.0.0'</code></pre>
 
 ## Demo
 ![demo](https://git.lug.ustc.edu.cn/wzios/WZNetwork/raw/master/1.png)
+
+## 说明
+- 4.0.0 只支持iOS10开始
+- 1.0.0 - 3.x 支持iOS9开始
 
 ## Usage 
 ### 定义用户模块请求接口

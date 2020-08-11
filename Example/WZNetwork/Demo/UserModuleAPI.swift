@@ -6,7 +6,7 @@
 //  Copyright © 2019 xiaobin liu. All rights reserved.
 //
 
-import WZMoya
+import Moya
 import Foundation
 
 
@@ -30,7 +30,7 @@ enum UserModuleApi {
 extension UserModuleApi: TargetType {
     
     var baseURL: URL {
-        return URL(string: "http://testapi.myhoney520.com")!
+        return URL(string: "http://v4malu2x.api.7799520.com")!
     }
     
     var path: String {
@@ -46,7 +46,7 @@ extension UserModuleApi: TargetType {
         }
     }
     
-    var method: WZMoya.Method {
+    var method: Moya.Method {
         switch self {
         case .login:
             return .post
@@ -62,7 +62,7 @@ extension UserModuleApi: TargetType {
     var task: Task {
         switch self {
         case let .login(info):
-            return Task.requestParameters(parameters: info, encoding: URLEncoding.methodDependent)
+            return Task.requestParameters(parameters: info, encoding: URLEncoding.default)
         case .findalbum:
             return Task.requestPlain
         case let .upLoadUserAvatar(info, image):

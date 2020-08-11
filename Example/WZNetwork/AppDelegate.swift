@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import WZMoya
+import Moya
 import WZUUID
 import WZNetwork
 
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return .requestParameters(parameters: parameters.merge(withDictionary: totenParameters)
                     .merge(withDictionary: Network.Configuration.default.publicParameters ?? [:]), encoding: encoding)
             case .requestPlain:
-                return .requestParameters(parameters: totenParameters, encoding: WZMoya.URLEncoding.methodDependent)
+                return .requestParameters(parameters: totenParameters, encoding: URLEncoding.default)
             case let .uploadCompositeMultipart(multipartFormData, urlParameters):
                 return .uploadCompositeMultipart(multipartFormData, urlParameters: urlParameters.merge(withDictionary: totenParameters))
             default:

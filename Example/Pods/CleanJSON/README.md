@@ -1,6 +1,6 @@
 # CleanJSON
 
-[![CI Status](https://img.shields.io/travis/Pircate/CleanJSON.svg?style=flat)](https://travis-ci.org/Pircate/CleanJSON)
+[![build](https://github.com/Pircate/CleanJSON/workflows/build/badge.svg)](https://github.com/Pircate/CleanJSON/actions?query=workflow%3ASwift)
 [![Version](https://img.shields.io/cocoapods/v/CleanJSON.svg?style=flat)](https://cocoapods.org/pods/CleanJSON)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/CleanJSON.svg?style=flat)](https://cocoapods.org/pods/CleanJSON)
@@ -18,7 +18,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 * iOS 9.0
-* Swift 4.2
+* Swift 5.2
 
 ## Installation
 
@@ -56,7 +56,7 @@ try decoder.decode(Model.self, from: data)
 
 对于枚举类型请遵循 `CaseDefaultable` 协议，如果解析失败会返回默认 case
 
-Note: 枚举使用强类型解析，关联类型和数据类型不一致不会进行类型转换，会解析为默认 case
+**Note: 枚举使用强类型解析，关联类型和数据类型不一致不会进行类型转换，会解析为默认 case**
 
 ```swift
 enum Enum: Int, Codable, CaseDefaultable {
@@ -119,6 +119,15 @@ decoder.jsonStringDecodingStrategy = .containsKeys([])
 
 // 所有 JSON 字符串都转成对象
 decoder.jsonStringDecodingStrategy = .all
+```
+
+为 `keyDecodingStrategy` 新增了一个自定义映射器，可以只映射指定 coding path 的 key 
+
+```swift
+decoder.keyDecodingStrategy = .mapper([
+    ["snake_case"]: "snakeCase",
+    ["nested", "alpha"]: "a"
+])
 ```
 
 ### For Moya

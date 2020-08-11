@@ -6,8 +6,9 @@
 //  Copyright © 2019 xiaobin liu. All rights reserved.
 //
 
-import WZMoya
-import WZAlamofire
+import Moya
+import DeviceKit
+import Alamofire
 
 
 /// MARK - 我主良缘网络请求
@@ -23,7 +24,7 @@ open class Network {
     
     /// 初始化配置
     ///
-    /// - Parameter configuration: <#configuration description#>
+    /// - Parameter configuration: configuration description
     public init(configuration: Configuration) {
         provider = MoyaProvider(configuration: configuration)
     }
@@ -36,7 +37,7 @@ public extension MoyaProvider {
     
     /// 自定义配置
     ///
-    /// - Parameter configuration: <#configuration description#>
+    /// - Parameter configuration: configuration description
     convenience init(configuration: Network.Configuration) {
         
         let endpointClosure = { target -> Endpoint in
@@ -61,22 +62,22 @@ public extension MoyaProvider {
         
         self.init(endpointClosure: endpointClosure,
                   requestClosure: requestClosure,
-                  manager: MoyaProvider.customAlamofireManager(),
+                  session: MoyaProvider.customAlamofireManager(),
                   plugins: configuration.plugins)
     }
     
     
     /// 自定义alamofire管理
     ///
-    /// - Returns: <#return value description#>
-    final class func customAlamofireManager() -> Manager {
-        
+    /// - Returns: Session
+    final class func customAlamofireManager() -> Session {
+
         let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = Network.Configuration.defaultHTTPHeaders
-        
-        let manager = Manager(configuration: configuration)
-        manager.startRequestsImmediately = false
-        return manager
+        configuration.headers = [.defaultAcceptEncoding,
+                                 .defaultAcceptLanguage,
+                                 Network.Configuration.defaultUserAgent]
+
+        return Session(configuration: configuration, startRequestsImmediately: false)
     }
 }
 

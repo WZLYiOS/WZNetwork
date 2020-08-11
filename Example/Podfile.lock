@@ -1,21 +1,23 @@
 PODS:
-  - CleanJSON (1.0.0)
+  - Alamofire (5.2.2)
+  - CleanJSON (1.0.4)
+  - DeviceKit (3.2.0)
   - KeychainAccess (3.2.1)
+  - Moya (15.0.0-alpha.1):
+    - Moya/Core (= 15.0.0-alpha.1)
+  - Moya/Core (15.0.0-alpha.1):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0-alpha.1):
+    - Moya/Core
+    - RxSwift (~> 5.0)
   - RxSwift (5.0.1)
-  - WZAlamofire (3.0.0)
   - WZEncryption (1.0.0)
-  - WZMoya (3.0.0):
-    - WZMoya/Core (= 3.0.0)
-  - WZMoya/Core (3.0.0):
-    - WZAlamofire (~> 3.0.0)
-  - WZMoya/RxSwift (3.0.0):
-    - RxSwift (~> 5.0.0)
-    - WZMoya/Core
-  - WZNetwork (3.0.0):
-    - WZNetwork/Core (= 3.0.0)
-  - WZNetwork/Core (3.0.0):
-    - WZMoya (~> 3.0.0)
-    - WZMoya/RxSwift (~> 3.0.0)
+  - WZNetwork (4.0.0):
+    - WZNetwork/Core (= 4.0.0)
+  - WZNetwork/Core (4.0.0):
+    - DeviceKit (~> 3.2.0)
+    - Moya (~> 15.0.0-alpha.1)
+    - Moya/RxSwift (~> 15.0.0-alpha.1)
   - WZUUID (2.0.1):
     - WZUUID/Source (= 2.0.1)
   - WZUUID/Source (2.0.1):
@@ -28,30 +30,32 @@ DEPENDENCIES:
   - WZUUID (~> 2.0.0)
 
 SPEC REPOS:
-  https://gitlab.com/WZiOS/WZiOSPodSpecs:
-    - WZAlamofire
+  https://github.com/WZLYiOS/WZPodSpecs.git:
     - WZEncryption
-    - WZMoya
-    - WZUUID
-  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+  trunk:
+    - Alamofire
     - CleanJSON
+    - DeviceKit
     - KeychainAccess
+    - Moya
     - RxSwift
+    - WZUUID
 
 EXTERNAL SOURCES:
   WZNetwork:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CleanJSON: 702dd619e1329c6399a579aa19af311acf47e461
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  CleanJSON: 17f4248ca3d12b8438b31c5cf1dd02cea46c591f
+  DeviceKit: d081659419cce07c0b5239dbc9fb39ed7413c7fe
   KeychainAccess: d5470352939ced6d6f7fb51cb2e67aae51fc294f
+  Moya: 101c94dfb29289736ecd20fa6e82bea665e0671b
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
-  WZAlamofire: 8a9e8047f90ab799fffbfc33ef5da39b2db12ff8
-  WZEncryption: 2c12726b435cdcbffb66d7771a8c9dc1378c1714
-  WZMoya: eaf8c1f24ac05554d877a1a1bee68bc2ab4031d7
-  WZNetwork: 94f15f3cf7c56ad76e0f74e2afe00171e65759c9
-  WZUUID: bb62f3f0f1e4c510495109332bb196cef018c1f3
+  WZEncryption: 260be3da074da0d5522adca48760bbe2b1655eec
+  WZNetwork: 28065183f39f4983f1ec793c7124c792a9c447d5
+  WZUUID: 99ce1ce0620407d3094a59b6cb09f916eb1d340e
 
-PODFILE CHECKSUM: d171406cd5e9b6819eba44ea596ff9e0d0e1869c
+PODFILE CHECKSUM: cb0da9dfb9287e955b0e7b7d93f4070fe08b70d7
 
 COCOAPODS: 1.9.1
