@@ -12,9 +12,9 @@ PODS:
     - RxSwift (~> 5.0)
   - RxSwift (5.0.1)
   - WZEncryption (1.0.0)
-  - WZNetwork (4.0.0):
-    - WZNetwork/Core (= 4.0.0)
-  - WZNetwork/Core (4.0.0):
+  - WZNetwork (5.0.0):
+    - WZNetwork/Core (= 5.0.0)
+  - WZNetwork/Core (5.0.0):
     - DeviceKit (~> 3.2.0)
     - Moya (~> 15.0.0-alpha.1)
     - Moya/RxSwift (~> 15.0.0-alpha.1)
@@ -53,7 +53,7 @@ SPEC CHECKSUMS:
   Moya: 101c94dfb29289736ecd20fa6e82bea665e0671b
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   WZEncryption: 260be3da074da0d5522adca48760bbe2b1655eec
-  WZNetwork: 28065183f39f4983f1ec793c7124c792a9c447d5
+  WZNetwork: f3ab0ce1b907278afd6b645e07a16154b7d73c7e
   WZUUID: 99ce1ce0620407d3094a59b6cb09f916eb1d340e
 
 PODFILE CHECKSUM: cb0da9dfb9287e955b0e7b7d93f4070fe08b70d7
