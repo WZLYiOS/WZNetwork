@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double DeviceKitVersionNumber;
-FOUNDATION_EXPORT const unsigned char DeviceKitVersionString[];
+FOUNDATION_EXPORT double WZDeviceKitVersionNumber;
+FOUNDATION_EXPORT const unsigned char WZDeviceKitVersionString[];
 

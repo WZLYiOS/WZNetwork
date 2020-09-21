@@ -7,8 +7,8 @@
 //
 
 import Moya
-import DeviceKit
 import Alamofire
+import WZDeviceKit
 
 // MARK: - 网络请求配置扩展
 public extension Network {

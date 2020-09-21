@@ -1,7 +1,6 @@
 PODS:
   - Alamofire (5.2.2)
   - CleanJSON (1.0.4)
-  - DeviceKit (3.2.0)
   - KeychainAccess (3.2.1)
   - Moya (15.0.0-alpha.1):
     - Moya/Core (= 15.0.0-alpha.1)
@@ -11,13 +10,14 @@ PODS:
     - Moya/Core
     - RxSwift (~> 5.0)
   - RxSwift (5.0.1)
+  - WZDeviceKit (1.0.0)
   - WZEncryption (1.0.0)
-  - WZNetwork (5.0.0):
-    - WZNetwork/Core (= 5.0.0)
-  - WZNetwork/Core (5.0.0):
-    - DeviceKit (~> 3.2.0)
+  - WZNetwork (5.1.0):
+    - WZNetwork/Core (= 5.1.0)
+  - WZNetwork/Core (5.1.0):
     - Moya (~> 15.0.0-alpha.1)
     - Moya/RxSwift (~> 15.0.0-alpha.1)
+    - WZDeviceKit (~> 1.0.0)
   - WZUUID (2.0.1):
     - WZUUID/Source (= 2.0.1)
   - WZUUID/Source (2.0.1):
@@ -31,11 +31,11 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/WZLYiOS/WZPodSpecs.git:
+    - WZDeviceKit
     - WZEncryption
   trunk:
     - Alamofire
     - CleanJSON
-    - DeviceKit
     - KeychainAccess
     - Moya
     - RxSwift
@@ -48,12 +48,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   CleanJSON: 17f4248ca3d12b8438b31c5cf1dd02cea46c591f
-  DeviceKit: d081659419cce07c0b5239dbc9fb39ed7413c7fe
   KeychainAccess: d5470352939ced6d6f7fb51cb2e67aae51fc294f
   Moya: 101c94dfb29289736ecd20fa6e82bea665e0671b
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  WZDeviceKit: 818607f5cade5a63e5af4f9a6f1b2f03da8de7bb
   WZEncryption: 260be3da074da0d5522adca48760bbe2b1655eec
-  WZNetwork: f3ab0ce1b907278afd6b645e07a16154b7d73c7e
+  WZNetwork: 8618d02f632bfd2ffe91e622a4a56d4f2c5e93bb
   WZUUID: 99ce1ce0620407d3094a59b6cb09f916eb1d340e
 
 PODFILE CHECKSUM: cb0da9dfb9287e955b0e7b7d93f4070fe08b70d7

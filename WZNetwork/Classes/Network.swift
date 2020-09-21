@@ -7,9 +7,8 @@
 //
 
 import Moya
-import DeviceKit
 import Alamofire
-
+import WZDeviceKit
 
 /// MARK - 我主良缘网络请求
 open class Network {
