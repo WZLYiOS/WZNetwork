@@ -6,7 +6,7 @@
 //  Copyright © 2019 xiaobin liu. All rights reserved.
 //
 
-import Moya
+import WZMoya
 import Alamofire
 import WZDeviceKit
 

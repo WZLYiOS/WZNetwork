@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Moya
+import WZMoya
 import RxSwift
 import CleanJSON
 import Foundation

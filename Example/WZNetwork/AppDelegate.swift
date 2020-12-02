@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Moya
+import WZMoya
 import WZUUID
 import WZNetwork
 

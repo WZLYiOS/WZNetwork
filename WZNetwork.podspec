@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WZNetwork'
-  s.version          = '5.1.0'
+  s.version          = '5.2.0'
   s.summary          = '我主良缘网络框架'
 
   s.description      = <<-DESC
@@ -22,8 +22,8 @@ Pod::Spec.new do |s|
   
   s.subspec 'Core' do |ss|
     ss.source_files = 'WZNetwork/Classes/'
-    ss.dependency "Moya", "~> 15.0.0-alpha.1"
-    ss.dependency "Moya/RxSwift", "~> 15.0.0-alpha.1"
+    ss.dependency "WZMoya", "~> 4.0.0"
+    ss.dependency "WZMoya/RxSwift", "~> 4.0.0"
     ss.dependency "WZDeviceKit", "~> 1.0.0"
   end
   
