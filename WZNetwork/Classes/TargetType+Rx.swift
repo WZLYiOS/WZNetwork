@@ -6,7 +6,7 @@
 //  Copyright © 2019 xiaobin liu. All rights reserved.
 //
 
-import WZMoya
+import Moya
 import RxSwift
 
 
@@ -16,7 +16,7 @@ public extension TargetType {
     /// 请求
     ///
     /// - Returns: Single<Moya.Response>
-    func request() -> Single<WZMoya.Response> {
+    func request() -> Single<Moya.Response> {
         return Network.default.provider
             .rx
             .request(.target(self))

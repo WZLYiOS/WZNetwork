@@ -6,7 +6,7 @@
 //  Copyright © 2019 xiaobin liu. All rights reserved.
 //
 
-import WZMoya
+import Moya
 import Foundation
 
 
@@ -46,7 +46,7 @@ extension UserModuleApi: TargetType {
         }
     }
     
-    var method: WZMoya.Method {
+    var method: Moya.Method {
         switch self {
         case .login:
             return .post
