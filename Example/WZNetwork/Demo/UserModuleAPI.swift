@@ -8,7 +8,7 @@
 
 import Moya
 import Foundation
-
+import WZNetwork
 
 /// MARK - 账户模块API
 enum UserModuleApi {
@@ -27,7 +27,7 @@ enum UserModuleApi {
 
 
 // MARK: - TargetType
-extension UserModuleApi: TargetType {
+extension UserModuleApi: TargetType, CachePolicyGettable {
     
     var baseURL: URL {
         return URL(string: "http://v4malu2x.api.7799520.com")!
@@ -78,5 +78,9 @@ extension UserModuleApi: TargetType {
     
     var headers: [String : String]? {
         return nil
+    }
+    
+    var cachePolicy: URLRequest.CachePolicy {
+        return .useProtocolCachePolicy
     }
 }

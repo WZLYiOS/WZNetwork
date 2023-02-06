@@ -143,7 +143,7 @@ extension UserModuleApi: CaseIterable, CustomStringConvertible {
                               "app_version": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "4.0.0"]
             .encryption),
                 findalbum,
-                upLoadUserAvatar(info: [:], image: UIImage(named: "Image1111")!.jpegData(compressionQuality: 0.8)!),
+                upLoadUserAvatar(info: [:], image: UIImage(named: "Image1111")!.jpegData(compressionQuality: 0.8) ?? Data()),
                 downloadConfig]
     }
     
