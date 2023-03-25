@@ -40,7 +40,7 @@ public extension MoyaProvider {
     convenience init(configuration: Network.Configuration) {
         
         let endpointClosure = { target -> Endpoint in
-            MoyaProvider.defaultEndpointMapping(for: target)
+           return MoyaProvider.defaultEndpointMapping(for: target)
                 .adding(newHTTPHeaderFields: configuration.addingHeaders(target))
                 .replacing(task: configuration.replacingTask(target))
         }
@@ -65,7 +65,6 @@ public extension MoyaProvider {
                   plugins: configuration.plugins)
     }
     
-    
     /// 自定义alamofire管理
     ///
     /// - Returns: Session
@@ -75,6 +74,13 @@ public extension MoyaProvider {
         configuration.headers = [.defaultAcceptEncoding,
                                  .defaultAcceptLanguage,
                                  Network.Configuration.defaultUserAgent]
+        
+//        let reachability = NetworkReachabilityManager()
+//        if (reachability?.isReachable)! {
+//            configuration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+//        }else{
+//            configuration.requestCachePolicy = .returnCacheDataElseLoad
+//        }
 
         return Session(configuration: configuration, startRequestsImmediately: false)
     }

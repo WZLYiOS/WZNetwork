@@ -29,10 +29,10 @@ public extension Network {
         public var timeoutInterval: TimeInterval = 30
         
         /// Token
-        public var token: String?
+//        public var token: String?
         
         /// 公有参数
-        public var publicParameters: [String: Any]?
+        public var publicParameters: (TargetType) -> [String: String] = { _ in [:] }
         
         /// 插件
         public var plugins: [PluginType] = [NetworkIndicatorPlugin()]

@@ -78,7 +78,7 @@ extension ViewController: UITableViewDelegate {
                 .mapModel(UserModel.self)
                 .subscribe(onNext: { (result) in
                     debugPrint(result)
-                    Network.Configuration.default.token = result.token
+//                    Network.Configuration.default.token = result.token
                 }, onError: { (error) in
                     debugPrint(error)
                 }).disposed(by: disposeBag)

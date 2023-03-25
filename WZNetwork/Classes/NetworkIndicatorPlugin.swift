@@ -60,4 +60,9 @@ public protocol CachePolicyGettable {
     var cachePolicy: URLRequest.CachePolicy { get }
 }
 
-
+/// MARK - 加密协议
+public protocol EncryptionProtocol {
+    
+    /// 是否加密
+    var isEncryption: Bool { get }
+}

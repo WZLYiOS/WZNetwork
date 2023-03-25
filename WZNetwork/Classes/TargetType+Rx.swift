@@ -22,6 +22,20 @@ public extension TargetType {
             .request(.target(self))
             .observeOn(MainScheduler.instance)
     }
+    
+    /// 公有参数
+    var publicParameters: [String : String] {
+        return Network.Configuration.default.publicParameters(self)
+    }
+    
+    /// 是否加密
+    var isEncryption: Bool {
+        if let mTarget = self as? MultiTarget,
+            let encryption = mTarget.target as? EncryptionProtocol {
+            return encryption.isEncryption
+        }
+        return false
+    }
 }
 
 

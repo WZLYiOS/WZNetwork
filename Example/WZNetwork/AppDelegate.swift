@@ -28,25 +28,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func networkConfig() {
         
         Network.Configuration.default.timeoutInterval = 30
-        Network.Configuration.default.publicParameters = ["request_agent": "ios",
-                                                          "imei": WZUUID.uuid,
-                                                          "app_version": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "4.0.0"]
+        Network.Configuration.default.publicParameters = { target -> [String: String] in
+            return  ["request_agent": "ios",
+                     "imei": WZUUID.uuid,
+                     "app_version": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "4.0.0",
+                     "token": ""]
+        }
+        
+//        Network.Configuration.default.publicParameters = ["request_agent": "ios",
+//                                                          "imei": WZUUID.uuid,
+//                                                          "app_version": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "4.0.0"]
         Network.Configuration.default.plugins = [NetworkIndicatorPlugin()]
         Network.Configuration.default.replacingTask = { target in
             
-            var totenParameters: [String: Any] = [:]
-            if let temToken = Network.Configuration.default.token {
-                totenParameters = ["token": temToken]
-            }
-            
+//            var totenParameters: [String: Any] = [:]
+//            if let temToken = Network.Configuration.default.token {
+//                totenParameters = ["token": temToken]
+//            }
             switch target.task {
             case let .requestParameters(parameters, encoding):
-                return .requestParameters(parameters: parameters.merge(withDictionary: totenParameters)
-                    .merge(withDictionary: Network.Configuration.default.publicParameters ?? [:]), encoding: encoding)
+                return .requestParameters(parameters: parameters.merge(withDictionary: target.publicParameters), encoding: encoding)
             case .requestPlain:
-                return .requestParameters(parameters: totenParameters, encoding: URLEncoding.default)
+                return .requestParameters(parameters: target.publicParameters, encoding: URLEncoding.default)
             case let .uploadCompositeMultipart(multipartFormData, urlParameters):
-                return .uploadCompositeMultipart(multipartFormData, urlParameters: urlParameters.merge(withDictionary: totenParameters))
+                return .uploadCompositeMultipart(multipartFormData, urlParameters: urlParameters.merge(withDictionary: target.publicParameters))
             default:
                 return target.task
             }
