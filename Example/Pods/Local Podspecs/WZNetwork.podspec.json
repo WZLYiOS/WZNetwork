@@ -1,6 +1,6 @@
 {
   "name": "WZNetwork",
-  "version": "6.0.0",
+  "version": "6.1.2",
   "summary": "我主良缘网络框架",
   "description": "深圳我主良缘有限公司，iOS项目组网络组件.",
   "homepage": "https://github.com/WZLYiOS/WZNetwork",
@@ -13,13 +13,13 @@
   },
   "source": {
     "git": "https://github.com/WZLYiOS/WZNetwork.git",
-    "tag": "6.0.0"
+    "tag": "6.1.2"
   },
   "requires_arc": true,
   "static_framework": true,
   "swift_versions": "5.0",
   "platforms": {
-    "ios": "10.0"
+    "ios": "11.0"
   },
   "default_subspecs": "Core",
   "subspecs": [
@@ -35,6 +35,9 @@
         ],
         "WZDeviceKit": [
           "~> 1.0.0"
+        ],
+        "Cache": [
+          "~> 6.0.0"
         ]
       }
     }

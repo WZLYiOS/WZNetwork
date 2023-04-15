@@ -74,14 +74,6 @@ public extension MoyaProvider {
         configuration.headers = [.defaultAcceptEncoding,
                                  .defaultAcceptLanguage,
                                  Network.Configuration.defaultUserAgent]
-        
-//        let reachability = NetworkReachabilityManager()
-//        if (reachability?.isReachable)! {
-//            configuration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-//        }else{
-//            configuration.requestCachePolicy = .returnCacheDataElseLoad
-//        }
-
         return Session(configuration: configuration, startRequestsImmediately: false)
     }
 }

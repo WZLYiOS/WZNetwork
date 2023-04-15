@@ -31,6 +31,7 @@ extension UserModuleApi: TargetType, CachePolicyGettable {
     
     var baseURL: URL {
         return URL(string: "http://v4malu2x.api.7799520.com")!
+//        return URL(string: "http://api.test.app.liangyuan.com/app")!
     }
     
     var path: String {
@@ -43,6 +44,7 @@ extension UserModuleApi: TargetType, CachePolicyGettable {
             return "/user/app/avatar/saveImg"
         case .downloadConfig:
             return "/center/app/config/getIOS"
+//            return "/v1/member/app_version"
         }
     }
     
@@ -81,6 +83,6 @@ extension UserModuleApi: TargetType, CachePolicyGettable {
     }
     
     var cachePolicy: URLRequest.CachePolicy {
-        return .useProtocolCachePolicy
+        return .returnCacheDataElseLoad
     }
 }

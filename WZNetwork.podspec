@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WZNetwork'
-  s.version          = '6.1.2'
+  s.version          = '6.1.3'
   s.summary          = '我主良缘网络框架'
 
   s.description      = <<-DESC
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.static_framework = true
   s.swift_version         = '5.0'
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
   s.default_subspec = 'Core'
   
   s.subspec 'Core' do |ss|
@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
     ss.dependency "Moya", "~> 15.0.0-alpha.1"
     ss.dependency "Moya/RxSwift", "~> 15.0.0-alpha.1"
     ss.dependency "WZDeviceKit", "~> 1.0.0"
+    ss.dependency 'Cache', '~> 6.0.0'
   end
   
 end

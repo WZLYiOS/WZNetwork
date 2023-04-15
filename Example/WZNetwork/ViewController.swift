@@ -91,17 +91,18 @@ extension ViewController: UITableViewDelegate {
                     debugPrint(error)
                 }).disposed(by: disposeBag)
         case 2:
-            requestObject.request()
-                .mapResult(String.self)
-                .subscribe(onNext: { (result) in
-                debugPrint(result.msg)
-            }, onError: { (e) in
-                debugPrint(e)
-            }).disposed(by: disposeBag)
+//            requestObject.request()
+//                .mapResult(String.self)
+//                .subscribe(onNext: { (result) in
+//                debugPrint(result.msg)
+//            }, onError: { (e) in
+//                debugPrint(e)
+//            }).disposed(by: disposeBag)
+            WZCache.shared.clear()
         case 3:
             
-            requestObject.request()
-                .mapModel(BaseConfigInfo.self)
+            requestObject.request(policyType: .all)
+                .mapResult(BaseConfigInfo.self)
                 .subscribe(onNext: { (result) in
                     debugPrint(result)
                 }, onError: { (error) in

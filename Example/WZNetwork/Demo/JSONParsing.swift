@@ -26,10 +26,7 @@ public struct WZResult<T: Decodable>: Decodable {
     }
 }
 
-
-// MARK: - PrimitiveSequence + JSONParsing
-public extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
-    
+public extension ObservableType where Element == Response {
     /// MARK - 转换数据为Result实体
     ///
     /// - Parameter type: 类型
@@ -54,7 +51,6 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
                 return model
         }
     }
-    
     
     /// 转换为单独的实体
     ///
@@ -107,6 +103,47 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
                 }
                 return true
         }
+    }
+}
+
+
+
+
+// MARK: - PrimitiveSequence + JSONParsing
+public extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
+    
+    /// MARK - 转换数据为Result实体
+    ///
+    /// - Parameter type: 类型
+    /// - Returns: Result
+    func mapResult<T: Decodable>(_ type: T.Type) -> Observable<WZResult<T>> {
+        return self.asObservable().mapResult(type)
+    }
+    
+    
+    /// 转换为单独的实体
+    ///
+    /// - Parameter type: <#type description#>
+    /// - Returns: <#return value description#>
+    func mapModel<T: Decodable>(_ type: T.Type) -> Observable<T> {
+        return self.asObservable().mapModel(type)
+    }
+    
+    
+    /// 可选实体
+    ///
+    /// - Parameter type: 类型
+    /// - Returns: 可选实体的对象
+    func mapOptionalModel<T: Decodable>(_ type: T.Type) -> Observable<T?> {
+        return self.asObservable().mapOptionalModel(type)
+    }
+    
+    
+    /// 判断成功
+    ///
+    /// - Returns: 观察者成功
+    func mapSuccess() -> Observable<Bool> {
+        return self.asObservable().mapSuccess()
     }
     
 }
