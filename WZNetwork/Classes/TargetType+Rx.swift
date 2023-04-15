@@ -11,10 +11,11 @@ import RxSwift
 
 // MARK: 返回缓存数据类型
 public enum CachePolicyType {
-case nomar  /// 服务器数据
-case cache  /// 先缓存后服务器
-case onlyCache /// 只读缓存
+case nomar  /// 默认策略读取服务端数据
+case cache  /// 先缓存后服务器, 回调2次
+case cacheElseLoad /// 本地有缓存，返回缓存，无从服务端取
 }
+
 
 // MARK: - TargetType + Rx
 public extension TargetType {
@@ -61,12 +62,12 @@ public extension Reactive where Base: MoyaProviderType {
         switch responseCache {
         case .nomar:
             return request(target, callbackQueue: callbackQueue).asObservable()
-        case .cache:
+        case .cacheElseLoad:
             if let cacheResponse = WZCache.shared.fetchResponseCache(target: target) {
                 return Observable.just(cacheResponse)
             }
             return request(target, callbackQueue: callbackQueue).asObservable()
-        case .all:
+        case .cache:
             var originRequest = request(target, callbackQueue: callbackQueue).asObservable()
             let cacheResponse = WZCache.shared.fetchResponseCache(target: target)
             // 更新缓存

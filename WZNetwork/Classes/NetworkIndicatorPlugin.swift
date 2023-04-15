@@ -21,15 +21,15 @@ public final class NetworkIndicatorPlugin: PluginType {
         }
     }
     
-    public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
-        if let mTarget = target as? MultiTarget,
-            let cacheableTarget = mTarget.target as? CachePolicyGettable {
-            var mutableRequest = request
-            mutableRequest.cachePolicy = cacheableTarget.cachePolicy
-            return mutableRequest
-        }
-        return request
-    }
+//    public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+//        if let mTarget = target as? MultiTarget,
+//            let cacheableTarget = mTarget.target as? CachePolicyGettable {
+//            var mutableRequest = request
+//            mutableRequest.cachePolicy = cacheableTarget.cachePolicy
+//            return mutableRequest
+//        }
+//        return request
+//    }
     
     /// 将要开始发送请求
     ///
@@ -53,11 +53,6 @@ public final class NetworkIndicatorPlugin: PluginType {
     
     /// 初始化
     public init() {}
-}
-
-/// MAKR - 自定义缓存策略
-public protocol CachePolicyGettable {
-    var cachePolicy: URLRequest.CachePolicy { get }
 }
 
 /// MARK - 加密协议

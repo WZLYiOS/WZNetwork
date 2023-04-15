@@ -101,7 +101,7 @@ extension ViewController: UITableViewDelegate {
             WZCache.shared.clear()
         case 3:
             
-            requestObject.request(policyType: .all)
+            requestObject.request(policyType: .cache)
                 .mapResult(BaseConfigInfo.self)
                 .subscribe(onNext: { (result) in
                     debugPrint(result)

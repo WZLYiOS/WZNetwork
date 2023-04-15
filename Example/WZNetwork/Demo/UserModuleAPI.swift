@@ -27,7 +27,7 @@ enum UserModuleApi {
 
 
 // MARK: - TargetType
-extension UserModuleApi: TargetType, CachePolicyGettable {
+extension UserModuleApi: TargetType {
     
     var baseURL: URL {
         return URL(string: "http://v4malu2x.api.7799520.com")!
