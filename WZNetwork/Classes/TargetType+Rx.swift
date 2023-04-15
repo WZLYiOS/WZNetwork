@@ -12,8 +12,8 @@ import RxSwift
 // MARK: 返回缓存数据类型
 public enum CachePolicyType {
 case nomar  /// 服务器数据
-case cache  /// 缓存数据
-case all    /// 先缓存后服务器
+case cache  /// 先缓存后服务器
+case onlyCache /// 只读缓存
 }
 
 // MARK: - TargetType + Rx
