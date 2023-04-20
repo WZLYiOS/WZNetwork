@@ -22,6 +22,9 @@ public extension Network {
         /// 全局追加header头部配置
         public var addingHeaders: (TargetType) -> [String: String] = { _ in [:] }
         
+        /// 当前缓存用户id
+        public var cacheUserId: (TargetType) -> String = { _ in "" }
+        
         /// 更换任务
         public var replacingTask: (TargetType) -> Task = { $0.task }
         

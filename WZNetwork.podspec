@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WZNetwork'
-  s.version          = '6.1.5'
+  s.version          = '6.1.6'
   s.summary          = '我主良缘网络框架'
 
   s.description      = <<-DESC
