@@ -39,6 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return defaultHTTPHeaders
         }
         
+        Network.Configuration.default.cacheUserId = { _ in
+            return "1223"
+        }
+        
 //        Network.Configuration.default.publicParameters = ["request_agent": "ios",
 //                                                          "imei": WZUUID.uuid,
 //                                                          "app_version": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "4.0.0"]

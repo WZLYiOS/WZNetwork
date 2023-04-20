@@ -35,8 +35,9 @@ extension TargetType {
     private var cacheKey: String {
         let baseKey = baseCacheKey
         if parameters.isEmpty { return baseKey }
-        debugPrint(parameters)
-        return baseKey + "?" + parameters
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+        let token = Network.Configuration.default.cacheUserId(self)
+        return baseKey + "?" + version + token + parameters
     }
     
     private func cacheKey(with customKey: String) -> String {
@@ -44,41 +45,31 @@ extension TargetType {
     }
     
     private var parameters: String {
-        /// 请求头
-        let headerParameters = Network.Configuration.default.addingHeaders(self)
         switch self.task {
         case let .requestParameters(parameters, _):
-            return jsonString(parameters: merge(headerParameters, parameters))
+            return jsonString(parameters: parameters)
         case let .requestCompositeParameters(bodyParameters, _, urlParameters):
             var parameters = bodyParameters
             for (key, value) in urlParameters { parameters[key] = value }
-            return jsonString(parameters: merge(headerParameters, parameters))
+            return jsonString(parameters: parameters)
         case let .downloadParameters(parameters, _, _):
-            return jsonString(parameters: merge(headerParameters, parameters))
+            return jsonString(parameters: parameters)
         case let .uploadCompositeMultipart(_, urlParameters):
-            return jsonString(parameters: merge(headerParameters, urlParameters))
+            return jsonString(parameters: urlParameters)
         case let .requestCompositeData(_, urlParameters):
-            return jsonString(parameters: merge(headerParameters, urlParameters))
-        default: return jsonString(parameters:headerParameters)
+            return jsonString(parameters: urlParameters)
+        default: return ""
         }
     }
     
     /// 字典转string
     private func jsonString(parameters: [String: Any])-> String {
         
-        if let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: []),
+        if let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: JSONSerialization.WritingOptions.prettyPrinted),
            let json = String(data: jsonData, encoding: .utf8){
             return json
         }
         return ""
-    }
-    
-    func merge(_ from: [String: Any], _ to: [String: Any]) -> [String: Any] {
-        var returnDictionary = to
-        from.keys.forEach {
-            returnDictionary[$0] = from[$0]
-        }
-        return returnDictionary
     }
 }
 
