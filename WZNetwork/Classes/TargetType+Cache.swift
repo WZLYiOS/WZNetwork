@@ -45,7 +45,7 @@ extension TargetType {
     
     private var parameters: String {
         /// 请求头
-        let headerParameters = ["cacheId": Network.Configuration.default.cacheUserId(self)]
+        let headerParameters = Network.Configuration.default.addingHeaders(self)
         switch self.task {
         case let .requestParameters(parameters, _):
             return jsonString(parameters: merge(headerParameters, parameters))

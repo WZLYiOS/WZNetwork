@@ -35,9 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      "token": ""]
         }
         
-        Network.Configuration.default.cacheUserId = { _ in
-            return "asdasda"
-        }
         Network.Configuration.default.addingHeaders = { _ in
             return defaultHTTPHeaders
         }
