@@ -210,7 +210,7 @@ public class AuthenticationInterceptor<AuthenticatorType>: RequestInterceptor wh
         var refreshWindow: RefreshWindow?
 
         var adaptOperations: [AdaptOperation] = []
-        var requestsToRetry: [(Alamofire.RetryResult) -> Void] = []
+        var requestsToRetry: [(RetryResult) -> Void] = []
     }
 
     // MARK: Properties
@@ -224,8 +224,7 @@ public class AuthenticationInterceptor<AuthenticatorType>: RequestInterceptor wh
     let authenticator: AuthenticatorType
     let queue = DispatchQueue(label: "org.alamofire.authentication.inspector")
 
-    @Protected
-    private var mutableState = MutableState()
+    private let mutableState: Protected<MutableState>
 
     // MARK: Initialization
 
@@ -242,14 +241,13 @@ public class AuthenticationInterceptor<AuthenticatorType>: RequestInterceptor wh
                 credential: Credential? = nil,
                 refreshWindow: RefreshWindow? = RefreshWindow()) {
         self.authenticator = authenticator
-        mutableState.credential = credential
-        mutableState.refreshWindow = refreshWindow
+        mutableState = Protected(MutableState(credential: credential, refreshWindow: refreshWindow))
     }
 
     // MARK: Adapt
 
     public func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
-        let adaptResult: AdaptResult = $mutableState.write { mutableState in
+        let adaptResult: AdaptResult = mutableState.write { mutableState in
             // Queue the adapt operation if a refresh is already in place.
             guard !mutableState.isRefreshing else {
                 let operation = AdaptOperation(urlRequest: urlRequest, session: session, completion: completion)
@@ -317,7 +315,7 @@ public class AuthenticationInterceptor<AuthenticatorType>: RequestInterceptor wh
             return
         }
 
-        $mutableState.write { mutableState in
+        mutableState.write { mutableState in
             mutableState.requestsToRetry.append(completion)
 
             guard !mutableState.isRefreshing else { return }
@@ -338,14 +336,16 @@ public class AuthenticationInterceptor<AuthenticatorType>: RequestInterceptor wh
         mutableState.refreshTimestamps.append(ProcessInfo.processInfo.systemUptime)
         mutableState.isRefreshing = true
 
-        authenticator.refresh(credential, for: session) { result in
-            self.$mutableState.write { mutableState in
-                switch result {
-                case let .success(credential):
-                    self.handleRefreshSuccess(credential, insideLock: &mutableState)
-
-                case let .failure(error):
-                    self.handleRefreshFailure(error, insideLock: &mutableState)
+        // Dispatch to queue to hop out of the lock in case authenticator.refresh is implemented synchronously.
+        queue.async {
+            self.authenticator.refresh(credential, for: session) { result in
+                self.mutableState.write { mutableState in
+                    switch result {
+                    case let .success(credential):
+                        self.handleRefreshSuccess(credential, insideLock: &mutableState)
+                    case let .failure(error):
+                        self.handleRefreshFailure(error, insideLock: &mutableState)
+                    }
                 }
             }
         }

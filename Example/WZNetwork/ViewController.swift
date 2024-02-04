@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import Moya
 import WZUUID
 import RxSwift
 import WZNetwork
 import Foundation
-
+import CleanJSON
+import Alamofire
 
 /// MARK - 演示项目
 final class ViewController: UIViewController {
@@ -43,6 +43,11 @@ final class ViewController: UIViewController {
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    
+//        let vc = AFViewController()
+//        self.addChild(vc)
+//        view.addSubview(vc.view)
+//        vc.view.isUserInteractionEnabled = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,18 +95,9 @@ extension ViewController: UITableViewDelegate {
                 }, onError: { (error) in
                     debugPrint(error)
                 }).disposed(by: disposeBag)
-        case 2:
-//            requestObject.request()
-//                .mapResult(String.self)
-//                .subscribe(onNext: { (result) in
-//                debugPrint(result.msg)
-//            }, onError: { (e) in
-//                debugPrint(e)
-//            }).disposed(by: disposeBag)
-            WZCache.shared.clear()
         case 3:
-            
-            requestObject.request(policyType: .cache)
+        
+            requestObject.request(policyType: .nomar)
                 .mapResult(BaseConfigInfo.self)
                 .subscribe(onNext: { (result) in
                     debugPrint(result)
@@ -114,6 +110,7 @@ extension ViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
 
 
 // MARK: - CaseIterable
@@ -147,8 +144,6 @@ extension UserModuleApi: CaseIterable, CustomStringConvertible {
                 upLoadUserAvatar(info: [:], image: UIImage(named: "Image1111")!.jpegData(compressionQuality: 0.8) ?? Data()),
                 downloadConfig]
     }
-    
-    
 }
 
 
@@ -168,3 +163,5 @@ private extension Dictionary {
         return temDic
     }
 }
+
+

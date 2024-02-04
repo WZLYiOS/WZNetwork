@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0450F34E872A881B2F0F584D /* Pods_WZNetwork_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B431EC9591B785EAF74E9FAA /* Pods_WZNetwork_Example.framework */; };
+		2859FD502B6CE5CC005E6E43 /* Response+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859FD4F2B6CE5CC005E6E43 /* Response+.swift */; };
+		2859FD522B6CEA26005E6E43 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859FD512B6CEA26005E6E43 /* GitHubAPI.swift */; };
+		2859FD5C2B6F26C5005E6E43 /* AFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859FD5B2B6F26C5005E6E43 /* AFViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2859FD4F2B6CE5CC005E6E43 /* Response+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+.swift"; sourceTree = "<group>"; };
+		2859FD512B6CEA26005E6E43 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		2859FD5B2B6F26C5005E6E43 /* AFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFViewController.swift; sourceTree = "<group>"; };
 		3DDEDBD4252438DD5F6F4BE5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		43E6BA8B4927DB0AB9F05556 /* Pods_WZNetwork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WZNetwork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DB057281F8C2A5CBFDE71E /* Pods-WZNetwork_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZNetwork_Tests.debug.xcconfig"; path = "Target Support Files/Pods-WZNetwork_Tests/Pods-WZNetwork_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 				80BB39A12302A33200999A44 /* Dictionary + Mergable.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				2859FD5B2B6F26C5005E6E43 /* AFViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -160,7 +167,9 @@
 				80BB39A52302A34300999A44 /* UserModel.swift */,
 				80BB39A62302A34300999A44 /* UserPhoto.swift */,
 				80BB39A72302A34300999A44 /* JSONParsing.swift */,
+				2859FD4F2B6CE5CC005E6E43 /* Response+.swift */,
 				80BB39A82302A34300999A44 /* UserModuleAPI.swift */,
+				2859FD512B6CEA26005E6E43 /* GitHubAPI.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -205,7 +214,7 @@
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "WZNetwork" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -263,25 +272,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WZNetwork_Example/Pods-WZNetwork_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
-				"${BUILT_PRODUCTS_DIR}/CleanJSON/CleanJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/WZEncryption/WZEncryption.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WZNetwork_Example/Pods-WZNetwork_Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CleanJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WZEncryption.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WZNetwork_Example/Pods-WZNetwork_Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -295,13 +291,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2859FD5C2B6F26C5005E6E43 /* AFViewController.swift in Sources */,
 				80BB39A92302A34300999A44 /* BaseConfigInfo.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				2859FD522B6CEA26005E6E43 /* GitHubAPI.swift in Sources */,
 				80BB39AA2302A34300999A44 /* UserModel.swift in Sources */,
 				80BB39A22302A33500999A44 /* Dictionary + Mergable.swift in Sources */,
 				80BB39AD2302A34300999A44 /* UserModuleAPI.swift in Sources */,
 				80BB39AB2302A34300999A44 /* UserPhoto.swift in Sources */,
+				2859FD502B6CE5CC005E6E43 /* Response+.swift in Sources */,
 				80BB39AC2302A34300999A44 /* JSONParsing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,7 +425,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -439,8 +439,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = TA399PG2C9;
 				INFOPLIST_FILE = WZNetwork/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 6.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -460,8 +463,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = TA399PG2C9;
 				INFOPLIST_FILE = WZNetwork/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 6.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";

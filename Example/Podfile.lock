@@ -1,25 +1,26 @@
 PODS:
-  - Alamofire (5.2.2)
+  - Alamofire (5.8.1)
   - Cache (6.0.0)
-  - CleanJSON (1.0.4)
+  - CleanJSON (1.0.9)
   - KeychainAccess (3.2.1)
-  - Moya (15.0.0-alpha.1):
-    - Moya/Core (= 15.0.0-alpha.1)
-  - Moya/Core (15.0.0-alpha.1):
+  - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
-  - Moya/RxSwift (15.0.0-alpha.1):
+  - Moya/RxSwift (15.0.0):
     - Moya/Core
-    - RxSwift (~> 5.0)
-  - RxSwift (5.0.1)
-  - WZDeviceKit (1.0.0)
+    - RxSwift (~> 6.0)
+  - RxSwift (6.6.0)
   - WZEncryption (1.0.0)
-  - WZNetwork (6.1.2):
-    - WZNetwork/Core (= 6.1.2)
-  - WZNetwork/Core (6.1.2):
+  - WZNetwork (6.2.0):
+    - WZNetwork/AF (= 6.2.0)
+    - WZNetwork/Cache (= 6.2.0)
+    - WZNetwork/Moya (= 6.2.0)
+  - WZNetwork/AF (6.2.0):
+    - WZNetwork/Cache
+  - WZNetwork/Cache (6.2.0):
     - Cache (~> 6.0.0)
-    - Moya (~> 15.0.0-alpha.1)
-    - Moya/RxSwift (~> 15.0.0-alpha.1)
-    - WZDeviceKit (~> 1.0.0)
+  - WZNetwork/Moya (6.2.0):
+    - Moya/RxSwift (~> 15.0.0)
+    - WZNetwork/Cache
   - WZUUID (2.0.1):
     - WZUUID/Source (= 2.0.1)
   - WZUUID/Source (2.0.1):
@@ -33,7 +34,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/WZLYiOS/WZPodSpecs.git:
-    - WZDeviceKit
     - WZEncryption
   trunk:
     - Alamofire
@@ -49,17 +49,16 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
-  CleanJSON: 17f4248ca3d12b8438b31c5cf1dd02cea46c591f
+  CleanJSON: 910a36465ce4829e264a902ccf6d1455fdd9f980
   KeychainAccess: d5470352939ced6d6f7fb51cb2e67aae51fc294f
-  Moya: 101c94dfb29289736ecd20fa6e82bea665e0671b
-  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
-  WZDeviceKit: 818607f5cade5a63e5af4f9a6f1b2f03da8de7bb
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   WZEncryption: 260be3da074da0d5522adca48760bbe2b1655eec
-  WZNetwork: 1a7d63780213ad981d608b65f7bfbf4fd66cb4d2
+  WZNetwork: 720eacfe48df6848f6080f61f5b48282bb93b53d
   WZUUID: 99ce1ce0620407d3094a59b6cb09f916eb1d340e
 
-PODFILE CHECKSUM: c5f4aff1bb60e6856b2f441c2cd4cd4e9b0f89c9
+PODFILE CHECKSUM: 3c3fad39a87f6188a9a9f87cb5c08e98e6a64a10
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.14.3

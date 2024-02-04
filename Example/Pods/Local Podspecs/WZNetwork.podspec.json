@@ -1,6 +1,6 @@
 {
   "name": "WZNetwork",
-  "version": "6.1.2",
+  "version": "6.2.0",
   "summary": "我主良缘网络框架",
   "description": "深圳我主良缘有限公司，iOS项目组网络组件.",
   "homepage": "https://github.com/WZLYiOS/WZNetwork",
@@ -13,29 +13,40 @@
   },
   "source": {
     "git": "https://github.com/WZLYiOS/WZNetwork.git",
-    "tag": "6.1.2"
+    "tag": "6.2.0"
   },
   "requires_arc": true,
   "static_framework": true,
   "swift_versions": "5.0",
   "platforms": {
-    "ios": "11.0"
+    "ios": "13.0"
   },
-  "default_subspecs": "Core",
   "subspecs": [
     {
-      "name": "Core",
-      "source_files": "WZNetwork/Classes/",
+      "name": "Moya",
+      "source_files": "WZNetwork/Classes/Moya",
       "dependencies": {
-        "Moya": [
-          "~> 15.0.0-alpha.1"
-        ],
         "Moya/RxSwift": [
-          "~> 15.0.0-alpha.1"
+          "~> 15.0.0"
         ],
-        "WZDeviceKit": [
-          "~> 1.0.0"
-        ],
+        "WZNetwork/Cache": [
+
+        ]
+      }
+    },
+    {
+      "name": "AF",
+      "source_files": "WZNetwork/Classes/AF",
+      "dependencies": {
+        "WZNetwork/Cache": [
+
+        ]
+      }
+    },
+    {
+      "name": "Cache",
+      "source_files": "WZNetwork/Classes/Cache",
+      "dependencies": {
         "Cache": [
           "~> 6.0.0"
         ]

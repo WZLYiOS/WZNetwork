@@ -26,7 +26,11 @@ public struct WZResult<T: Decodable>: Decodable {
     }
 }
 
+
+
 public extension ObservableType where Element == Response {
+    
+
     /// MARK - 转换数据为Result实体
     ///
     /// - Parameter type: 类型

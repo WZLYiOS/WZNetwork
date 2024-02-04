@@ -2,7 +2,7 @@
   <img height="160" src="web/logo_github.png" />
 </p>
 
-# Moya 14.0.0
+# Moya 15.0.0
 
 [![CircleCI](https://img.shields.io/circleci/project/github/Moya/Moya/master.svg)](https://circleci.com/gh/Moya/Moya/tree/master)
 [![codecov.io](https://codecov.io/github/Moya/Moya/coverage.svg?branch=master)](https://codecov.io/github/Moya/Moya?branch=master)
@@ -73,19 +73,21 @@ _Note: If you are using Swift 4.2 in your project, but you are using Xcode 10.2,
 
 ### Swift Package Manager
 
-To integrate using Apple's Swift package manager, add the following as a dependency to your `Package.swift`:
+_Note: Instructions below are for using **SwiftPM** without the Xcode UI. It's the easiest to go to your Project Settings -> Swift Packages and add Moya from there._
+
+To integrate using Apple's Swift package manager, without Xcode integration, add the following as a dependency to your `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "14.0.0"))
+.package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0"))
 ```
 
 and then specify `"Moya"` as a dependency of the Target in which you wish to use Moya.
-If you want to use reactive extensions, add also `"ReactiveMoya"`,`"RxMoya"` or
+If you want to use reactive extensions, add also `"ReactiveMoya"`, `"RxMoya"` or
 `"CombineMoya"` as your target dependency respectively.
 Here's an example `PackageDescription`:
 
 ```swift
-// swift-tools-version:5.0
+// swift-tools-version:5.3
 import PackageDescription
 
 let package = Package(
@@ -96,7 +98,7 @@ let package = Package(
             targets: ["MyPackage"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "14.0.0"))
+        .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0"))
     ],
     targets: [
         .target(
@@ -121,19 +123,19 @@ a weakly linked framework to your application target.
 For Moya, use the following entry in your Podfile:
 
 ```rb
-pod 'Moya', '~> 14.0'
+pod 'Moya', '~> 15.0'
 
 # or 
 
-pod 'Moya/RxSwift', '~> 14.0'
+pod 'Moya/RxSwift', '~> 15.0'
 
 # or
 
-pod 'Moya/ReactiveSwift', '~> 14.0'
+pod 'Moya/ReactiveSwift', '~> 15.0'
 
 #or
 
-pod 'Moya/Combine', '~> 14.1'
+pod 'Moya/Combine', '~> 15.0'
 ```
 
 Then run `pod install`.
@@ -144,15 +146,16 @@ import the framework with `import Moya`.
 ### Carthage
 
 Carthage users can point to this repository and use whichever
-generated framework they'd like, `Moya`, `RxMoya`, or `ReactiveMoya`.
+generated framework they'd like, `Moya`, `RxMoya`, `ReactiveMoya`, or
+`CombineMoya`.
 
 Make the following entry in your Cartfile:
 
 ```
-github "Moya/Moya" ~> 14.0
+github "Moya/Moya" ~> 15.0
 ```
 
-Then run `carthage update`.
+Then run `carthage update --use-xcframeworks`.
 
 If this is your first time using Carthage in the project, you'll need to go through some additional steps as explained [over at Carthage](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
 
@@ -166,15 +169,14 @@ If this is your first time using Carthage in the project, you'll need to go thro
 $ git init
 ```
 
-- Add Alamofire, Result & Moya as a git [submodule](http://git-scm.com/docs/git-submodule) by running the following commands:
+- Add Alamofire & Moya as a git [submodule](http://git-scm.com/docs/git-submodule) by running the following commands:
 
 ```bash
 $ git submodule add https://github.com/Alamofire/Alamofire.git
-$ git submodule add https://github.com/antitypical/Result.git
 $ git submodule add https://github.com/Moya/Moya.git
 ```
 
-- Open the new `Alamofire` folder, and drag the `Alamofire.xcodeproj` into the Project Navigator of your application's Xcode project. Do the same with the `Result.xcodeproj` in the `Result` folder and `Moya.xcodeproj` in the `Moya` folder.
+- Open the new `Alamofire` folder, and drag the `Alamofire.xcodeproj` into the Project Navigator of your application's Xcode project. Do the same with the `Moya.xcodeproj` in the `Moya` folder.
 
 > They should appear nested underneath your application's blue project icon. Whether it is above or below all the other Xcode groups does not matter.
 
@@ -190,8 +192,7 @@ $ git submodule add https://github.com/Moya/Moya.git
 
 > You can verify which one you selected by inspecting the build log for your project. The build target for `Alamofire` will be listed as either `Alamofire iOS`, `Alamofire macOS`, `Alamofire tvOS` or `Alamofire watchOS`.
 
-- Click on the `+` button under "Embedded Binaries" again and add the build target you need for `Result`.
-- Click on the `+` button again and add the correct build target for `Moya`.
+- Click on the `+` button under "Embedded Binaries" again and add the correct build target for `Moya`.
 
 - And that's it!
 

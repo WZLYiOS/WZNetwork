@@ -30,7 +30,7 @@ enum UserModuleApi {
 extension UserModuleApi: TargetType {
     
     var baseURL: URL {
-        return URL(string: "http://v4malu2x.api.7799520.com")!
+        return URL(string: "https://api.liangyuan.com")!
 //        return URL(string: "http://api.test.app.liangyuan.com/app")!
     }
     

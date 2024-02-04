@@ -3,6 +3,7 @@
 [![build](https://github.com/Pircate/CleanJSON/workflows/build/badge.svg)](https://github.com/Pircate/CleanJSON/actions?query=workflow%3ASwift)
 [![Version](https://img.shields.io/cocoapods/v/CleanJSON.svg?style=flat)](https://cocoapods.org/pods/CleanJSON)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![SPM support](https://camo.githubusercontent.com/db4e680db88f755692b027d972041b38481bb65f92659e5484c41373d82b94a0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f53504d2d737570706f727465642d4445354334332e7376673f7374796c653d666c6174)](https://swift.org/package-manager/)
 [![License](https://img.shields.io/cocoapods/l/CleanJSON.svg?style=flat)](https://cocoapods.org/pods/CleanJSON)
 [![Platform](https://img.shields.io/cocoapods/p/CleanJSON.svg?style=flat)](https://cocoapods.org/pods/CleanJSON)
 [![codebeat badge](https://codebeat.co/badges/4306b03d-6f8d-46c5-b30e-70ca9015d57f)](https://codebeat.co/projects/github-com-pircate-cleanjson-master)
@@ -10,7 +11,7 @@
 
 继承自 JSONDecoder，在标准库源码基础上做了改动，以解决 JSONDecoder 各种解析失败的问题，如键值不存在，值为 null，类型不一致。
 
-> 只需将 JSONDecoder 替换成 CleanJSONDecoder，属性可以全部使用不可选类型。
+> 只需将 JSONDecoder 替换成 CleanJSONDecoder。
 
 ## Example
 
@@ -50,6 +51,9 @@ import CleanJSON
 ```swift
 let decoder = CleanJSONDecoder()
 try decoder.decode(Model.self, from: data)
+
+// 支持直接解析符合 JSON 规范的字典和数组
+try decoder.decode(Model.self, from: ["key": value])
 ```
 
 ### Enum
