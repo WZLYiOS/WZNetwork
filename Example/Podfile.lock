@@ -15,8 +15,10 @@ PODS:
     - WZNetwork/Cache (= 6.2.0)
     - WZNetwork/Moya (= 6.2.0)
   - WZNetwork/AF (6.2.0):
+    - Alamofire (~> 5.8.1)
     - WZNetwork/Cache
   - WZNetwork/Cache (6.2.0):
+    - Alamofire (~> 5.8.1)
     - Cache (~> 6.0.0)
   - WZNetwork/Moya (6.2.0):
     - Moya/RxSwift (~> 15.0.0)
@@ -56,7 +58,7 @@ SPEC CHECKSUMS:
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   WZEncryption: 260be3da074da0d5522adca48760bbe2b1655eec
-  WZNetwork: 720eacfe48df6848f6080f61f5b48282bb93b53d
+  WZNetwork: d7fa47a31f8d1f2f3ac952e2e43e632833c3c3fd
   WZUUID: 99ce1ce0620407d3094a59b6cb09f916eb1d340e
 
 PODFILE CHECKSUM: 3c3fad39a87f6188a9a9f87cb5c08e98e6a64a10

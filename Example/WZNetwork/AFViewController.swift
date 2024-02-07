@@ -41,14 +41,7 @@ class AFViewController: UIViewController {
     */
 
     func test() {
-        Task {
-            do {
-                let mode = try await  AFTestApi.getUserInfo(username: "12313").request(type: AFUserInfo.self)
-                debugPrint(mode.name)
-            }catch{
-                debugPrint(error)
-            }
-        }
+    
     }
 }
 

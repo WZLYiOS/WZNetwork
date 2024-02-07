@@ -11,6 +11,31 @@
 import Cache
 import Foundation
 import UIKit
+import Alamofire
+/**
+ let cacheKey = [method]baseURL/path
+ 
+ - default : cacheKey + "?" + parameters
+ - base : cacheKey
+ - custom : cacheKey + "?" + customKey
+ */
+public enum WZCacheKeyType {
+    case `default`
+    case base
+    case custom(String)
+}
+
+// MARK: 返回缓存数据类型
+public enum CachePolicyType {
+case nomar  /// 默认策略读取服务端数据
+case cache  /// 先缓存后服务器, 回调2次
+case cacheElseLoad /// 本地有缓存，返回缓存，无从服务端取
+}
+
+public enum WZStatusCode: Int {
+    case cache = 230
+    case loadFail = 700
+}
 
 // MARK - cache
 public class WZCacheStorage<Value> {

@@ -9,12 +9,7 @@
 import Moya
 import RxSwift
 
-// MARK: 返回缓存数据类型
-public enum CachePolicyType {
-case nomar  /// 默认策略读取服务端数据
-case cache  /// 先缓存后服务器, 回调2次
-case cacheElseLoad /// 本地有缓存，返回缓存，无从服务端取
-}
+
 
 
 // MARK: - TargetType + Rx

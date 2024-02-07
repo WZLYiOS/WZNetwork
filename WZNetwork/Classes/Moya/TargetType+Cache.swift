@@ -12,24 +12,6 @@ import Foundation
 import Moya
 import Alamofire
 
-public enum WZStatusCode: Int {
-    case cache = 230
-    case loadFail = 700
-}
-
-/**
- let cacheKey = [method]baseURL/path
- 
- - default : cacheKey + "?" + parameters
- - base : cacheKey
- - custom : cacheKey + "?" + customKey
- */
-public enum WZCacheKeyType {
-    case `default`
-    case base
-    case custom(String)
-}
-
 // MARK: 获取缓存
 extension TargetType {
     
@@ -41,7 +23,6 @@ extension TargetType {
         case .base:
             return baseCacheKey
         case .default:
-    
             if parameters.isEmpty { return baseCacheKey }
             let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
             let token = Network.Configuration.default.cacheUserId(self)
@@ -50,7 +31,6 @@ extension TargetType {
             return baseCacheKey + "?" + key
         }
     }
-    
     
     private var parameters: String {
         switch self.task {

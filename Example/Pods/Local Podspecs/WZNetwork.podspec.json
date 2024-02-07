@@ -23,6 +23,18 @@
   },
   "subspecs": [
     {
+      "name": "Cache",
+      "source_files": "WZNetwork/Classes/Cache",
+      "dependencies": {
+        "Cache": [
+          "~> 6.0.0"
+        ],
+        "Alamofire": [
+          "~> 5.8.1"
+        ]
+      }
+    },
+    {
       "name": "Moya",
       "source_files": "WZNetwork/Classes/Moya",
       "dependencies": {
@@ -40,15 +52,9 @@
       "dependencies": {
         "WZNetwork/Cache": [
 
-        ]
-      }
-    },
-    {
-      "name": "Cache",
-      "source_files": "WZNetwork/Classes/Cache",
-      "dependencies": {
-        "Cache": [
-          "~> 6.0.0"
+        ],
+        "Alamofire": [
+          "~> 5.8.1"
         ]
       }
     }

@@ -3,4 +3,226 @@
    uuid = "42257D08-E665-4F05-BEA2-238AA1953DB5"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "48DC6281-330E-4E16-858C-4CF598AAA3CC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Moya/Sources/Moya/Moya+Alamofire.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "response(callbackQueue:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9FB1E6FF-C113-4B55-96A0-81F323B49DC9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Moya/Sources/Moya/Moya+Alamofire.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "response(callbackQueue:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9FB1E6FF-C113-4B55-96A0-81F323B49DC9 - f3e0200d8d1ec9b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Alamofire.DataRequest.response(callbackQueue: Swift.Optional&lt;__C.OS_dispatch_queue&gt;, completionHandler: (Swift.Optional&lt;__C.NSHTTPURLResponse&gt;, Swift.Optional&lt;Foundation.URLRequest&gt;, Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; Self"
+                  moduleName = "Moya"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qiuqixiang/Desktop/iOS/WZKit/WZNetwork/Example/Pods/Moya/Sources/Moya/Moya+Alamofire.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "359">
+               </Location>
+               <Location
+                  uuid = "9FB1E6FF-C113-4B55-96A0-81F323B49DC9 - a44b4a9b3f9dbd36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;Swift.Optional&lt;Foundation.Data&gt;, Alamofire.AFError&gt;) -&gt; () in Alamofire.DataRequest.response(callbackQueue: Swift.Optional&lt;__C.OS_dispatch_queue&gt;, completionHandler: (Swift.Optional&lt;__C.NSHTTPURLResponse&gt;, Swift.Optional&lt;Foundation.URLRequest&gt;, Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; Self"
+                  moduleName = "Moya"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qiuqixiang/Desktop/iOS/WZKit/WZNetwork/Example/Pods/Moya/Sources/Moya/Moya+Alamofire.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "197">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE358ABE-B978-4A57-9BC0-D4D112D418B6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WZNetwork/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CE358ABE-B978-4A57-9BC0-D4D112D418B6 - a90a08fd690ba6d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #5 @Sendable () async -&gt; () in WZNetwork_Example.ViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "WZNetwork_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qiuqixiang/Desktop/iOS/WZKit/WZNetwork/Example/WZNetwork/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "323">
+               </Location>
+               <Location
+                  uuid = "CE358ABE-B978-4A57-9BC0-D4D112D418B6 - a90a08fd690ba6d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #5 @Sendable () async -&gt; () in WZNetwork_Example.ViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "WZNetwork_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qiuqixiang/Desktop/iOS/WZKit/WZNetwork/Example/WZNetwork/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "151">
+               </Location>
+               <Location
+                  uuid = "CE358ABE-B978-4A57-9BC0-D4D112D418B6 - a90a08fd690ba6d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #5 @Sendable () async -&gt; () in WZNetwork_Example.ViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "WZNetwork_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qiuqixiang/Desktop/iOS/WZKit/WZNetwork/Example/WZNetwork/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "591">
+               </Location>
+               <Location
+                  uuid = "CE358ABE-B978-4A57-9BC0-D4D112D418B6 - a90a08fd690ba6d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #5 @Sendable () async -&gt; () in WZNetwork_Example.ViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "WZNetwork_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qiuqixiang/Desktop/iOS/WZKit/WZNetwork/Example/WZNetwork/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "578">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B1AF3DF9-44A6-484C-AE91-AB803D9ADB76"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WZNetwork/Demo/Response+.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "mapModelStream(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B1AF3DF9-44A6-484C-AE91-AB803D9ADB76 - 4df82b243f26b4c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.AsyncStream&lt;&#x3c4;_1_0&gt;.Continuation) -&gt; () in Swift.AsyncStream&lt;&#x3c4;_0_0 where &#x3c4;_0_0 == WZNetwork.AFRespone&gt;.mapModelStream&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable&gt;(&#x3c4;_1_0.Type) async throws -&gt; Swift.AsyncStream&lt;&#x3c4;_1_0&gt;"
+                  moduleName = "WZNetwork_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qiuqixiang/Desktop/iOS/WZKit/WZNetwork/Example/WZNetwork/Demo/Response+.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "83">
+               </Location>
+               <Location
+                  uuid = "B1AF3DF9-44A6-484C-AE91-AB803D9ADB76 - 9d2023afacb982c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async throws -&gt; () in closure #2 (Swift.AsyncStream&lt;&#x3c4;_1_0&gt;.Continuation) -&gt; () in Swift.AsyncStream&lt;&#x3c4;_0_0 where &#x3c4;_0_0 == WZNetwork.AFRespone&gt;.mapModelStream&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable&gt;(&#x3c4;_1_0.Type) async throws -&gt; Swift.AsyncStream&lt;&#x3c4;_1_0&gt;"
+                  moduleName = "WZNetwork_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qiuqixiang/Desktop/iOS/WZKit/WZNetwork/Example/WZNetwork/Demo/Response+.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  uuid = "B1AF3DF9-44A6-484C-AE91-AB803D9ADB76 - b4f972dc9212561b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #2 (Swift.AsyncStream&lt;&#x3c4;_1_0&gt;.Continuation) -&gt; () in Swift.AsyncStream&lt;&#x3c4;_0_0 where &#x3c4;_0_0 == WZNetwork.AFRespone&gt;.mapModelStream&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable&gt;(&#x3c4;_1_0.Type) async throws -&gt; Swift.AsyncStream&lt;&#x3c4;_1_0&gt;"
+                  moduleName = "WZNetwork_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qiuqixiang/Desktop/iOS/WZKit/WZNetwork/Example/WZNetwork/Demo/Response+.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "67">
+               </Location>
+               <Location
+                  uuid = "B1AF3DF9-44A6-484C-AE91-AB803D9ADB76 - 9ad31c3ac691a19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #2 (Swift.AsyncStream&lt;&#x3c4;_1_0&gt;.Continuation) -&gt; () in Swift.AsyncStream&lt;&#x3c4;_0_0 where &#x3c4;_0_0 == WZNetwork.AFRespone&gt;.mapModelStream&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable&gt;(&#x3c4;_1_0.Type) async throws -&gt; Swift.AsyncStream&lt;&#x3c4;_1_0&gt;"
+                  moduleName = "WZNetwork_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qiuqixiang/Desktop/iOS/WZKit/WZNetwork/Example/WZNetwork/Demo/Response+.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "333">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

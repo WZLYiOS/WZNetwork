@@ -21,6 +21,11 @@ Pod::Spec.new do |s|
 #  s.default_subspec = 'Core'
   
  
+ s.subspec 'Cache' do |ss|
+   ss.source_files = 'WZNetwork/Classes/Cache'
+   ss.dependency 'Cache', '~> 6.0.0'
+   ss.dependency  'Alamofire', "~> 5.8.1"
+ end
   
   s.subspec 'Moya' do |ss|
     ss.source_files = 'WZNetwork/Classes/Moya'
@@ -31,12 +36,10 @@ Pod::Spec.new do |s|
   s.subspec 'AF' do |ss|
     ss.source_files = 'WZNetwork/Classes/AF'
     ss.dependency 'WZNetwork/Cache'
+    ss.dependency  'Alamofire', "~> 5.8.1"
   end
   
-  s.subspec 'Cache' do |ss|
-    ss.source_files = 'WZNetwork/Classes/Cache'
-    ss.dependency 'Cache', '~> 6.0.0'
-  end
+  
   
   
   

@@ -97,13 +97,24 @@ extension ViewController: UITableViewDelegate {
                 }).disposed(by: disposeBag)
         case 3:
         
-            requestObject.request(policyType: .nomar)
-                .mapResult(BaseConfigInfo.self)
-                .subscribe(onNext: { (result) in
-                    debugPrint(result)
-                }, onError: { (error) in
+//            requestObject.request(policyType: .nomar)
+//                .mapResult(BaseConfigInfo.self)
+//                .subscribe(onNext: { (result) in
+//                    debugPrint(result)
+//                }, onError: { (error) in
+//                    debugPrint(error)
+//                }).disposed(by: disposeBag)
+            Task {
+                do {
+                    //
+                    let model = try await GitHubAPI.downloadConfig.request(.cache, ignore: ["token"]).fetchData().first?.mapModel(BaseConfigInfo.self)
+                    debugPrint(model)
+               
+                }catch{
                     debugPrint(error)
-                }).disposed(by: disposeBag)
+                }
+            }
+            
         default:
             break
         }

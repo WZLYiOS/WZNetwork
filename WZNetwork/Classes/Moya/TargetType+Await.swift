@@ -41,14 +41,14 @@ public extension TargetType {
         case .nomar:
             return try await request()
         case .cacheElseLoad:
-            if let cacheResponse = await fetchResponseCache(cacheKey: cacheType) {
+            if let cacheResponse = fetchResponseCache(cacheType: cacheType) {
                 return cacheResponse
             }
             return try await request()
         case .cache:
         
             /// 缓存数据
-            let cacheResponse = await fetchResponseCache(cacheKey: cacheType)
+            let cacheResponse = fetchResponseCache(cacheType: cacheType)
             
             /// 向服务端请求的数据
             let requestResponse = try await request()
@@ -62,17 +62,6 @@ public extension TargetType {
                 return requestResponse
             }
             return requestResponse
-        }
-    }
-    
-    /// 从缓存数据中获取
-    private func fetchResponseCache(cacheKey: WZCacheKeyType) async -> Moya.Response? {
-        return await withUnsafeContinuation { continuation in
-            if let cacheResponse = self.fetchResponseCache(cacheType: cacheKey) {
-                continuation.resume(returning: cacheResponse)
-            } else {
-                continuation.resume(returning: nil)
-            }
         }
     }
 }

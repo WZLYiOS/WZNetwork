@@ -10,6 +10,14 @@
 
 import Alamofire
 
+/// Represents an HTTP method.
+public typealias HTTPMethod = Alamofire.HTTPMethod
+
+/// Choice of parameter encoding.
+public typealias ParameterEncoding = Alamofire.ParameterEncoding
+public typealias JSONEncoding = Alamofire.JSONEncoding
+public typealias URLEncoding = Alamofire.URLEncoding
+
 public protocol AFTargetType {
 
     /// The target's base `URL`.
@@ -30,4 +38,5 @@ public protocol AFTargetType {
     /// The headers to be used in the request.
     var headers: [String: String]? { get }
 }
+
 

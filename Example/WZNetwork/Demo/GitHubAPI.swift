@@ -9,27 +9,38 @@
 //
 import Moya
 import Foundation
-struct UserInfo: Codable {
-    
-    let name: String
-}
-
+import WZNetwork
 
 enum GitHubAPI {
-    case getUserInfo(username: String)
+    case downloadConfig
 }
 
 // 实现 TargetType 协议来定义请求的详细信息
-extension GitHubAPI: TargetType {
-    var baseURL: URL { return URL(string: "https://api.github.com")! }
+extension GitHubAPI: AFTargetType {
+
+    var cacheType: WZNetwork.WZCacheKeyType {
+        return .default
+    }
+    
+    var parameters: [String : Any] {
+        return ["token": ""]
+    }
+    
+    var encoding: ParameterEncoding {
+        return URLEncoding.default
+    }
+    
+    var baseURL: URL {
+        return URL(string: "https://api.liangyuan.com")!
+    }
     var path: String {
         switch self {
-        case .getUserInfo(let username):
-            return "/users/\(username)"
+        case .downloadConfig:
+            return "/center/app/config/getIOS"
         }
     }
-    var method: Moya.Method { return .get }
-    var task: Task { return .requestPlain }
+    var method: HTTPMethod { return .get }
+   
     var headers: [String : String]? { return nil }
 }
 
